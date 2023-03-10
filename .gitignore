@@ -105,3 +105,6 @@ dist
 
 # visual studio
 .vscode
+
+# eslint
+.eslint
