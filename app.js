@@ -2,11 +2,12 @@ import express from 'express';
 import path from 'path';
 
 const app = express();
+app.use(express.static('public'));
 
 /* pages */
 
 app.get('/', ((req, res) => {
-  res.sendFile(path.resolve('frontpage/frontpage.html'));
+  res.sendFile(path.resolve('public/pages/frontpage/frontpage.html'));
 }));
 
 /* api */
