@@ -1,13 +1,24 @@
 import express from 'express';
-import path from 'path';
+import templateEngine from './utils/templateEngine.js';
 
 const app = express();
 app.use(express.static('public'));
 
 /* pages */
+const frontpage = templateEngine.readPage('./public/pages/frontpage/frontpage.html');
+const frontpagePage = templateEngine.renderPage(frontpage, {
+});
+
+const datatypes = templateEngine.readPage('./public/pages/datatypes/datatypes.html');
+const datatypesPage = templateEngine.renderPage(datatypes, {
+});
 
 app.get('/', ((req, res) => {
-  res.sendFile(path.resolve('public/pages/frontpage/frontpage.html'));
+  res.send(frontpagePage);
+}));
+
+app.get('/datatypes', ((req, res) => {
+  res.send(datatypesPage);
 }));
 
 /* api */

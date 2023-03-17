@@ -11,6 +11,13 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'import/extensions': [
+      'error',
+      'ingorePackages',
+      {
+        'js': 'never'
+      }
+    ],
     'no-console': 'off',
     'no-restricted-syntax': [
       'error',

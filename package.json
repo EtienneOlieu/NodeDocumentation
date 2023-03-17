@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "express": "4.18.2"
+    "express": "4.18.2",
+    "highlight.js": "^11.7.0"
   },
   "name": "nodedocumentation",
   "description": "A documentation for the theory and code of Node.",
