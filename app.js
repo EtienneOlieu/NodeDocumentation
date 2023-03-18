@@ -7,10 +7,12 @@ app.use(express.static('public'));
 /* pages */
 const frontpage = templateEngine.readPage('./public/pages/frontpage/frontpage.html');
 const frontpagePage = templateEngine.renderPage(frontpage, {
+  tabTitle: 'nJd | welcome'
 });
 
 const datatypes = templateEngine.readPage('./public/pages/datatypes/datatypes.html');
 const datatypesPage = templateEngine.renderPage(datatypes, {
+  tabTitle: 'nJd | datatypes'
 });
 
 app.get('/', ((req, res) => {
