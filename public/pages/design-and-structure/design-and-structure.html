@@ -1,0 +1,57 @@
+<h1>Design and Structure</h1>
+
+<h2>Designing an app it is important to follow certain agreesd-upon practices, in order to facilitate ease of maintenance</h2>
+
+<h3>App structure</h3>
+<p>
+    When speaking of the structure of the app, we are focusing on where the different functions of the application can be found. It is important that anybody familiar with the node framework can sit down and work with a minimum of time spent figuring out the location of methods, and imports.
+    As a rule in the app.js file you will find a standard structure across all node applications.  
+</p>
+<li>Imports - in the top, and instantiation of express</li>
+<pre>
+    <code>
+        import express from 'express';
+        import templateEngine from './utils/templateEngine.js';
+
+        const app = express();
+        app.use(express.static('public'));
+    </code>
+</pre>
+<li>Pages - second</li>
+<pre>
+    <code>
+        const page = templateEngine.readPage('./public/pages/page/page.html');
+        const pagePage = templateEngine.renderPage(page, {
+          tabTitle: 'something | welcome'
+        });
+        
+        app.get('/page', ((req, res) => {
+          res.send(pagePage);
+        }));
+    </code>
+</pre>
+<li>APIs - third</li>
+<pre>
+    <code>
+            app.get("/api/something", (req, res) => {
+            res.send({data: thing});
+            });
+    </code>
+</pre>
+<li>PORT - last where the open port is displayed</li>
+<pre>
+    <code>
+        const PORT = NUMBER;
+        app.listen(PORT, (error) => {
+        if (error) {
+        console.log(error);
+        }
+        console.log('Server is running on port:', PORT);
+        });
+    </code>
+</pre>
+
+<h3>API Design</h3>
+<p>
+    
+</p>

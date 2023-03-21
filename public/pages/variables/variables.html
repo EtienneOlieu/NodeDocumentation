@@ -1,0 +1,46 @@
+
+    <h1>Variables</h1>
+    <p>Are the placeholdes used to hold information for a program.</p>
+    
+    <h2>Datatypes</h2>
+   
+    <h2>
+        The following is an overview of the different datatypes a variable can be in Javascript.
+    </h2>
+
+    <p>
+        Data types are the different ways in which javascript handles and interprets data
+    </p>
+    <p>
+        javascript is weakly typed and will use what is called "type coercion" when an attempt is made to add two incompatible type it will coerce to the most freely available type (mostly a string).
+    </p>
+    <pre>
+        <code>
+            let thisVariable = 4;
+            typeof thisVariable === 'number' 
+            thisVariable + '1'; 
+            thisVariable === '41'; 
+            typeof thisVariable === 'string' 
+        </code>
+    </pre>
+    <li>Number - Is for both integers and floats./li>
+    <li>Bigint -  a primitve variable for holding large numbers.</li>
+    <li>String - holds any type of single, or series, of character. These can be written "", '', or `` (last is for string interpolation)</li>
+    <li>Boolean - is a value that is either true or false.</li>
+    <li>Null - Is the absense of an object, not often encountered in javascript as JS more often refers to...</li>
+    <li>Undefined - which is the value given when a variable or object has been given no value.</li>
+
+    <p>
+    Some values are also what is called truthy and falsy, this means that, given an "if" statment the type can be evaluated as an argument. 
+    In the example below, a variable is declared, but with no value. When evaluated in the "if" statement it will be read as falsy thus going down the "else" path.
+    </p>
+    <pre>
+        <code>
+            let thisVariable;
+            if (thisVariable){
+                console.log(`This variable is = ${thisVariable}`)
+            }else{
+                console.log(typeof thisVariable)
+            }
+        </code>
+    </pre>

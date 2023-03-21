@@ -10,17 +10,26 @@ const frontpagePage = templateEngine.renderPage(frontpage, {
   tabTitle: 'nJd | welcome'
 });
 
-const datatypes = templateEngine.readPage('./public/pages/datatypes/datatypes.html');
-const datatypesPage = templateEngine.renderPage(datatypes, {
-  tabTitle: 'nJd | datatypes'
-});
-
 app.get('/', ((req, res) => {
   res.send(frontpagePage);
 }));
 
-app.get('/datatypes', ((req, res) => {
-  res.send(datatypesPage);
+const variables = templateEngine.readPage('./public/pages/variables/variables.html');
+const variablesPage = templateEngine.renderPage(variables, {
+  tabTitle: 'nJd | datatypes'
+});
+
+app.get('/variables', ((req, res) => {
+  res.send(variablesPage);
+}));
+
+const designAndStructure = templateEngine.readPage('./public/pages/design-and-structure/design-and-structure.html');
+const designAndStructurePage = templateEngine.renderPage(designAndStructure, {
+  tabTitle: 'nJd | design-and-structure'
+});
+
+app.get('/design-and-structure', ((req, res) => {
+  res.send(designAndStructurePage);
 }));
 
 /* api */

@@ -12,7 +12,8 @@ a {
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration:rgb(255, 255, 0);
+    color: yellow;
   }
 
 a:visited {
@@ -21,28 +22,40 @@ a:visited {
 
 nav {
     background-color: aquamarine;
-    padding-left: 16vw;
-    padding-bottom: 2vh;
     margin-bottom: 5vh;
     min-height: 12vh;
-}
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    }
 
 main {
     flex: 1;
     margin-left: 20vw;
     margin-right: 20vw;
 }
-footer {
-    justify-content: end;
-}
 
 #logo {
     max-width: 4.5em;
-    /*margin-bottom: -0.3rem;*/
     padding: 1em;
     border-radius: 90%;
 }
 
-code {
-    background-color: slategray;
+#node-logo {
+    justify-content: center;
+    max-width: 40em;
+    padding: 1em;
+}
+
+pre code {
+    background-color: rgb(18, 18, 18);
+    color: greenyellow;
+    text-shadow: green 1px 0 1px, yellow -1px 0px 1px;
+    font-family: monospace;
+    display: block;
+    box-shadow: black -1px -1px 3px, rgb(72, 72, 72) 1px 1px 3px;
+    min-width: 100px;
+    max-width: 100%;
+    border-radius: 1em;
 }
