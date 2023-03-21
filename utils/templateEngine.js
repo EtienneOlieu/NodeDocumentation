@@ -1,5 +1,9 @@
 import fs from 'fs';
 
+function readPage(pagePath) {
+    return fs.readFileSync(pagePath.toString());
+}
+  
 function renderPage(page, config = {}) {
   const navbar = fs.readFileSync('./public/components/navbar/navbar.html').toString()
     .replace('$TAB_TITLE', config.tabTitle || 'Node JS doc');
@@ -8,10 +12,6 @@ function renderPage(page, config = {}) {
     .replace('$FOOTER_YEAR', `© Etienne Olieu - ${new Date().getFullYear()}`);
 
   return navbar + page + footer;
-}
-
-function readPage(pagePath) {
-  return fs.readFileSync(pagePath.toString());
 }
 
 export default {
