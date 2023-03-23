@@ -86,13 +86,13 @@ app.get('/rendering', ((req, res) => {
   res.send(renderingPage);
 }));
 
-const restfulAPI = templateEngine.readPage('./public/pages/restful-api/restful-api.html');
-const restfulAPIPage = templateEngine.renderPage(restfulAPI, {
-  tabTitle: 'nJd | restful-api'
+const restapi = templateEngine.readPage('./public/pages/REST-API/REST-API.html');
+const restapiPage = templateEngine.renderPage(restapi, {
+  tabTitle: 'nJd | rest-api'
 });
 
-app.get('/restfulapi', ((req, res) => {
-  res.send(restfulAPIPage);
+app.get('/restapi', ((req, res) => {
+  res.send(restapiPage);
 }));
 
 const terminal = templateEngine.readPage('./public/pages/terminal/terminal.html');

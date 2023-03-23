@@ -1,0 +1,47 @@
+
+<h1>REST API</h1>
+
+<h2>When sending or receiving data from one part of our application to another or an enirely different place, we need an API </h2>
+
+<p>
+    A REST API or Representational State Transfer Application Programming Interface, is a client server communication protocol built around entities that can be accessed via URL - generally called end points.
+    The data transfered can be:
+</p>
+<li>HTML</li>
+<li>JSON</li>
+<li>XML</li>
+<p>
+    The API also makes use of standardised HTTP methods that ensures a requests get an expected result. HTTP methods are:
+</p>
+<li>GET - retrieves a basic data entity, based on its ID</li>
+<li>POST - creates a new data entity, based on properties defined in the app</li>
+<li>PUT - replaces the contents of an existing data entity based on its ID</li>
+<li>PATCH - replaces an element or entry of an existing data entity based on its ID</li>
+<li>DELETE - deletes a data entity based on its ID</li>
+<p>
+    Furthermore the REST API is stateless, meaning that each request is independet and does not require the server to hold any information on the session.
+</p>
+<h2>Design</h2>
+<p>When designing the structure around the API - specifically the end points, there are certain agreed-upon standards that all REST API follow. 
+    Let's go with an example: We are creating an application around knitting and yarn. 
+    Our application can store information around different kinds of yarn and therefore we will be working from that. 
+    The following are example endpoints given our yarn-app.
+</p>
+<p>
+    Note that the order of the methods is also important as their placement in the application is also part of the standardization. 
+    Anybody having to work maintenance on the application would expect the different methods to be found specific places.
+</p>
+<pre>
+    <code>
+        GET - "/yarns"
+        GET - "/yarns/&lt;id&gt;"
+        POST - "/yarns"
+        PUT - "/yarns/&lt;id&gt;"
+        PATCH - "/yarns/&lt;id&gt;"
+        DELETE - "/yarns/&lt;id&gt;"
+    </code>
+</pre>
+
+<h3 id="poem">REST API calls,<br>
+    Resources at our command,<br>
+    Data flows with ease.</h3>

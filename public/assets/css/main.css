@@ -1,5 +1,6 @@
 body {
-    background-color: black;
+    background-color: whitesmoke;
+    color:rgb(20, 20, 20);
     font-family: Arial, Helvetica, sans-serif;
     min-height: 98vh;
     display: flex;
@@ -8,22 +9,21 @@ body {
 
 a {
     text-decoration: none;
-    color: greenyellow;
+    color: white;
     transition: all 0.5s ease-in-out;
     cursor: default;
 }
 
 a:hover {
-    text-decoration:rgb(255, 255, 0);
     color: white;
-    text-shadow: greenyellow 3px 0px 5px, rgb(252, 252, 116) -3px 0px 5px;
+    text-shadow: rgba(255, 0, 0, 0.8) 0px 0px 0px, rgba(0, 128, 0, 0.8) 0px 0px 0px,rgba(0, 0, 255, 0.8) 0px 0px 0px;
 }
 
 nav {
     background-color:rgb(18, 18, 18);
     box-shadow: black -1px -1px 3px, rgb(72, 72, 72) 1px 1px 3px;
     border-radius: 1em;
-    text-shadow: green 1px 0px 1px, yellow -1px 0px 1px;
+    text-shadow: rgba(255, 0, 0, 1) -3px -3px 3px, rgba(0, 128, 0, 1) 2px 2px 3px,rgba(0, 0, 255, 1) 3px -3px 3px;
     font-family: monospace;
     margin-bottom: 5vh;
     min-height: 12vh;
@@ -61,6 +61,15 @@ main {
     justify-content: center;
     max-width: 40em;
     padding: 1em;
+}
+
+#poem {
+    display: flex;
+    justify-content: center;
+    font-family: Snell Roundhand, cursive;
+    color: rgb(40, 40, 40);
+    text-shadow: cyan -3px -3px 2px, magenta 2px 2px 2px, yellow 3px -3px 2px;
+
 }
 
 h1 {
