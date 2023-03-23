@@ -1,9 +1,106 @@
 
 <h1>Terminal</h1>
 
-<h2>SHORT INTRODUCTORY PARAGRAPH.</h2>
+<h2>When working with Node™, or any other framework, it can be helpful to use terminal commands.</h2>
 
-<p>TEXT
+<p>
+In general the terminal, whether it is bash or zshell, is used to handle commands to the computer directly.
+These commands are helpful when working with code, as they give more direct control over different processes. 
+When working with node we often end up using many of the same commands, that will be detailed below.
+</p>
+<p>
+    When running the file we need to use the terminal. 
+    First it is important to navigate to the correct folder, and then run the correct file.
+</p>
+<pre>
+    <code>
+        pwd <- prints the current work directory
+        cd <- change directory
+        cd .. <- change directory up one level in the folder hierarchy
+        cd [folder name] <- changes directory to that folder
+        cd [folder name]/[sub-folder name] <- can be chained with subfolders
+
+        ls <- list shows the contents of the current directory
+        ls -a <- lists all in directory
+    </code>
+</pre>
+
+<p>
+    When typing in the terminal, it is <strong>not</strong> necessary to type the entire command, as a press on the tab ↹ key will complete or show suggestions for what is available/present in the current directory
+</p>
+<p>
+    In order to run the file, to start debugging or actually running it, you will need to do a couple of things. 
+    First you should navigate to the correct folder. Then you need to tell the system what it needs to run the file with.
+    For our purposes it is node.
+</p>
+<pre>
+    <code>
+        node [filename]
+    </code>
+</pre>
+
+<p>
+    This should execute your code once. When you need to exit the program again, this can be done with a tap of ctrl + c or ctrl + d depending on how hard of an exit you are looking for. In general an exit with ctrl + c is considered more safe.
+    Since we are goint to work on something that needs to be checked severel time it is helpful if we install nodemon, a tool that allows the application to automatically restart whenever changes to the code are detected.
 </p>
 
-<p>Redegør for git commit</p>
+<h2> Node Package Manager</h2>
+<p>Whenever we want to install extensions or packages as they are known in node we need to access the Node Package Manager.
+    This is generally a command in your terminal where you need to specify which pacakge you wish to install.</p>
+<p>
+    note that these commands may require a sudo prefix on mac, as the changes attempted by NPM may be rejected otherwise.
+</p>
+<pre>
+    <code>
+        npm i [name of package]
+    </code>
+</pre>
+<p>
+    Once nodemon is installed it may be good to create a new file in your project that tells nodemon which files it need to listen for changes in.
+    The contents of this json file should look like this
+</p>
+<pre>
+    <code>
+        {
+            "ext": "js, json, mjs, html"
+        }
+    </code>
+</pre>
+<p>
+    Once all of this has been installed and readied, we no longer just use node when starting our application, but <strong>nodemon</strong>.
+</p>
+<pre>
+    <code>
+        nodemon [filename]
+    </code>
+</pre>
+
+<h2>
+    Git commands
+</h2>
+<p>
+    When working on a project it is important to link it up to github, in order for it to be saved, shared and version controlled.
+    In order to do this, first we must create a repository on github.com which will be given a name and be designated as a Node project. 
+    Once we have a url we can open our terminal and start typing some commands.
+</p>
+
+<pre>
+    <code>
+            git clone [url] <- will clone a repository into your current wd
+    </code>
+</pre>
+<p>
+    Once a repository is cloned and has had some code written to it locally it will need to be backed up to github.
+    In order to do that we will first add the changes to be staged, then those changes should be commited with a comment on what they are, and finally the changes need to be pushed.
+    Which can look like this:
+</p>
+<pre>
+    <code>
+        git add -A
+        git commit -m "this should be a pertinent commit message"
+        git push
+    </code>
+</pre>
+<p>
+    Once this has been done, the project should be visible and available on github at a level dependent on the visibility chosen when it was created.
+</p>
