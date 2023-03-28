@@ -1,7 +1,61 @@
 
 <h1>Code Conventions</h1>
 
-<h2>SHORT INTRODUCTORY PARAGRAPH.</h2>
+<h2>These are guidelines we as developers must follow.</h2>
 
-<p>TEXT
+<p>
+    Code conventions are ubiquitous in programming, it is a set or sets of guidelines as to how to handle a variety of subjects regarding the code.
+    These subjects are typically:
 </p>
+<li>Naming - how are functions and variables named.</li>
+<li>Formating - how is code indented, lines broken and spaced.</li>
+<li>Commenting - where are comments put and under which circumstances.</li>
+<li>Error handling - how do we handle errors.</li>
+<li>Testing - how tests are written consistently.</li>
+<p>
+    Code conventions is something everybody on the project must adhere to otherwise the point is lost. In order to help enforce a coherent style, a linter may be employed. I have used eslint for this project.
+    Which requires some setup, but helps keep the code consistently clean and readable. 
+    Eslint is installed using the Node Package Manager and needs to be both enabled in your project but also installed as an extension.
+    Furthermore I experienced certain needs during my time with it but these can be handled by inputting the correct exceptions in the .eslintrc.cjs configuration file.
+</p>
+<pre>
+    <code>
+        npm i eslint
+    </code>
+</pre>
+<p>
+    This set eslint up. During the setup, you will be prompted to chose different things for your project, for instance if youi want to set up your syle guide yourself or choose one.
+</p>
+<p>
+    I set eslint up to use the style practiced by Airbandb - which is a widely used style. However, there are certain issues, with an app such as this one. 
+    No comments are allowed as well certain aspects of the way we use imports clash with that guide.
+</p>
+<pre>
+    <code>
+        rules: {
+            'import/extensions': [
+              'error',
+              'ingorePackages',
+              {
+                'js': 'never'
+              }
+            ],
+          },
+    </code>
+</pre>
+<p>
+    This rules changes the property of how packages are handled by eslint and allows for module imports without flagging an error.
+</p>
+<pre>
+    <code>
+        rules: {
+            'no-console': 'off',
+          }
+    </code>
+</pre>
+<p>This rules change, allows messages to the console. This is needed, since we print the port number to the console when starting the app</p>
+<div id="infobox">
+<p>
+    I touch a bit on the structure of our Node projects <a href="/designandstructure">here</a>
+</p>
+</div>
