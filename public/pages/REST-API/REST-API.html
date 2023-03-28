@@ -42,6 +42,39 @@
     </code>
 </pre>
 
+<p>
+    When we need to get something from our API we can use a fetch method as they are known.
+    This example is from an app that gets a specific date - which one is not particularly important.
+    The fetch starts by attempting to "fetch" whatever is found at the endpoint called "/api/time". 
+    Then whatever it receives, gets translated into json. 
+    Then that result is then given to two different functions within that particualr file.
+</p>
+<pre>
+    <code>
+        fetch("/api/time")
+        .then(response => response.json())
+        .then(result => {
+            isItArkhipovDay(result.data);
+            countDowntoArkhipovDay(result.data);
+        })
+    </code>
+</pre>
+
+<p>
+    The app.js part of the above example is below. 
+    This example is pretty silly and it doesn't seem necessary to use an api for just a specific date.
+    This is what is getting fetched above. 
+    The response to any requests at the endpoint "/api/time" results in the generation of a date object sent with a key called data and a value called arkhipovDate.
+</p>
+<pre>
+    <code>
+        app.get("/api/time", (req, res) => {
+            const arkhipovDate = new Date("1962-10-27")
+            res.send({ data: arkhipovDate})
+        });
+    </code>
+</pre>
+
 <h3 id="poem">REST API calls,<br>
     Resources at our command,<br>
     Data flows with ease.</h3>

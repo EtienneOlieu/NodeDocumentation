@@ -1,7 +1,88 @@
 
 <h1>Loops</h1>
 
-<h2>SHORT INTRODUCTORY PARAGRAPH.</h2>
+<h2>Javascript loop functions allow simple and short ways to iterate over any type of list.</h2>
 
-<p>TEXT
+<p>
+    In many situations it becomes necessary to iterate over a list with multiple data elements.
+    For this javascript has inbuilt functions for the types of actions that are most common.
+    Before these functions became available in javascript, or other languages as well, since they have begun using similar functions as well, programmers had to write their own loops each time.
+
 </p>
+<p>
+The following will list a number of the most common loop methods. I will examine each on the same sample array:</p>
+<pre>
+    <code>
+        //the array
+        const eightiesActors = [
+        {name: 'Arnold Schwarzenegger', genre: 'action'}, 
+        {name: 'Sharon Stone', genre: 'thrillere'}, 
+        {name: 'Tom Hanks', genre: 'comedy'}, 
+        {name: 'Kim Bassinger', genre: 'romance'},
+        {name: 'Sigourney Weaver', genre: 'science fiction'},
+        {name: 'Tom Cruise', genre: 'action'}
+        ]
+    </code>
+</pre>
+<pre>
+    <code>
+        //foreach - runs through the list and does something for each element. 
+        //In this example they have all died in a recent tragic plane crash.
+        const yearOfDeath = eightiesActors.forEach((actor) => {
+            actor.yearOfDeath = 2023;
+        });
+
+        // results in this list
+        const eightiesActors = [
+        {name: 'Arnold Schwarzenegger', genre: 'action', yearOfDeath: 2023}, 
+        {name: 'Sharon Stone', genre: 'thrillere', yearOfDeath: 2023}, 
+        {name: 'Tom Hanks', genre: 'comedy',  yearOfDeath: 2023}, 
+        {name: 'Kim Bassinger', genre: 'romance',  yearOfDeath: 2023},
+        {name: 'Sigourney Weaver', genre: 'science fiction', yearOfDeath: 2023},
+        {name: 'Tom Cruise', genre: 'action', yearOfDeath: 2023}
+        ]
+    </code>
+</pre>
+<p>
+    Please note that the forEach method has mutated the original array. This is rarely desired as it cna have consequences elsewhere in the system.
+    As a rule of thumb, forEach method is only for front-end handling.
+</p>
+<pre>
+    <code>
+        //map applies a function to each element.
+        //return values are then added to a new array
+        const actionStars = eightiesActors.map((actor)=> {
+            actor.genre = 'family';
+            return actor;
+        })
+
+    </code>
+</pre>
+<p>
+    This creates an entirely new list where all the genres of the actors have been changed to "family". 
+    Generally this is a much more desired way of doing this type of operation, as it returns a new array and leaves the original array intact (mostly).
+</p>
+<pre>
+    <code>
+        //filter creates a new array with only certain elements
+        const onlyAction = eightiesActors.filter((actor)=>actor.genre === 'action')
+        console.log(onlyAction)
+        [
+        { name: 'Arnold Schwarzenegger', genre: 'action'},
+        { name: 'Tom Cruise', genre: 'action'}
+        ]
+    </code>
+</pre>
+<pre>
+    <code>
+        //find returns the first element of the array that lives up to specifications
+        console.log(eightiesActors.find(actor => actor.name === 'Tom Hanks'))
+        { name: 'Tom Hanks', genre: 'comedy' }
+
+        console.log(eightiesActors.find(actor => actor.genre === 'action'))
+        { name: 'Arnold Schwarzenegger', genre: 'action'}
+    </code>
+</pre>
+<p>The find method will only return Arnold in the last example, as it will return the first element that lives up to its criteria.</p>
+<h2>Side effects</h2>
+<p>Side effects are unwanted effects resulting from not handling various methods properly, most likely it is due to poor encapsulation and lax adherence to scopes</p>
