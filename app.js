@@ -1,10 +1,31 @@
-import express from 'express';
+import express, { urlencoded } from 'express';
 import templateEngine from './utils/templateEngine.js';
 
 const app = express();
 app.use(express.static('public'));
+app.use(urlencoded({extended: true}));
 
 /* pages */
+
+const login = templateEngine.readPage('./public/pages/loginpage/loginpage.html');
+const loginPage = templateEngine.renderPage(login, {
+  tabTitle: 'nJd | login',
+  access: 'logout'
+})
+
+app.get('/login', ((req, res) => {
+  res.send(loginPage);
+}))
+
+const admin = templateEngine.readPage('./public/pages/admin/admin.html');
+const adminPage = templateEngine.renderPage(admin, {
+  tabTitle: 'nJd | admin'
+})
+
+app.get('/admin', ((req, res) => {
+  res.send(adminPage);
+}))
+
 const frontpage = templateEngine.readPage('./public/pages/frontpage/frontpage.html');
 const frontpagePage = templateEngine.renderPage(frontpage, {
   tabTitle: 'nJd | welcome'
@@ -116,6 +137,12 @@ app.get('/variables', ((req, res) => {
 
 
 /* api */
+const users = [{
+  username: 'admin',
+  password: 'admin'
+}]
+
+app.post('/login')
 
 const PORT = 8080;
 app.listen(PORT, (error) => {

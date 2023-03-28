@@ -1,7 +1,76 @@
 
 <h1>Modules</h1>
 
-<h2>SHORT INTRODUCTORY PARAGRAPH.</h2>
+<h2>A module is part of an application readied for use across the application.</h2>
 
-<p>TEXT
+<p>
+Splitting the functionality of an application across multiple parts is usually necessary in order to stay true to the GRASP and SOLID principles.
+As a rule a module is apart from the rest of the application in its own .js file. The contents of this file can then be shared by defining which parts must be exported from the file.
+The part of the application that utilizes the export must then import it.
 </p>
+
+<h3>file A (export)</h3>
+<p>
+    Here we create the function "thisIsAFunction" and export it as default with a function reference to thisIsAFunction from the file example.js.
+</p>
+<pre>
+    <code>
+        function thisIsAFunction(){
+            console.log('Hello World!')
+        };
+
+        export default{
+            thisIsAFunction
+        }
+    </code>
+</pre>
+
+<h3>file B (import)</h3>
+<p>
+    This is then imported into the correct file using the "require" syntax.
+</p>
+<pre>
+    <code>
+        const importedFunction = require ("./util/example.js");
+        importedFunction();
+
+    </code>
+</pre>
+<p>
+    Which allows the function to be called within the current scope - writing "Hello World!" to the console. 
+</p>
+<p>
+    However, we can run into compatibility and performance issues if we are not using ecmascript. When we implement this, it completely changes the way we import in the application.
+    First off, we need to tell express that the entirety of the project is supposed to be handled as a module. In the package.json file where we find the "name" of the project we add a "type" key with the value of "module".
+</p>
+<pre>
+    <code>
+        "name": "nodedocumentation",
+        "description": "A documentation for the theory and code of Node.",
+        "version": "0.0.1",
+        "main": "app.js",
+        "type": "module",
+    </code>
+</pre>
+<p>
+    As mentioned above, this completely changes how imports are handled. Now instead of "require" which is the inherent JS way, now we import.
+    The example below is an import of express below a require.
+</p>
+<pre>
+    <code>
+        const express = require('express');
+
+        import express from 'express';
+    </code>
+</pre>
+<h3>Destructuring</h3>
+<p>
+    Sometimes it is important to make clear specifically which parts of a given module that is being exported. This can be done in an easy toread and understand way called "destructuring".
+    When destructuring we use a specific syntax to tell javascript to extract specific values from the element reached. This is often seen with arrays.
+    In the following example we are using the destructuring syntax to extract added functionality from express (the ability to decode url).
+</p>
+<pre>
+    <code>
+        import express, { urlencoded } from 'express';
+    </code>
+</pre>

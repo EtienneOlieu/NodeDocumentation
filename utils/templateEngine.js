@@ -6,7 +6,8 @@ function readPage(pagePath) {
   
 function renderPage(page, config = {}) {
   const navbar = fs.readFileSync('./public/components/navbar/navbar.html').toString()
-    .replace('$TAB_TITLE', config.tabTitle || 'Node JS doc');
+    .replace('$TAB_TITLE', config.tabTitle || 'Node JS doc')
+    .replace('$LOGIN', config.access || 'login');
 
   const footer = fs.readFileSync('./public/components/footer/footer.html').toString()
     .replace('$FOOTER_YEAR', `© Etienne Olieu - ${new Date().getFullYear()}`);

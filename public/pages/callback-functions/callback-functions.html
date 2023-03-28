@@ -1,7 +1,71 @@
 
 <h1>Callback Functions</h1>
 
-<h2>SHORT INTRODUCTORY PARAGRAPH.</h2>
+<h2>A function sent to another fucntion as an argument</h2>
 
-<p>TEXT
+<p>
+    In order to start talk about calbback functions, we need to touch on a couple of other concepts.
+    First off, the anonymous function.
 </p>
+<h2>Anonymous functions</h2>
+<p>
+    Sometimes we need some functionality in the code but it is not necessary to use that function again, therefore it can be useful to create an anonymous function.
+    So instead of creating a function like so:
+</p>
+<pre>
+    <code>
+        function random(min,max){
+            return Math.floor((Math.random()*(max - min +1) -min))
+        }
+    </code>
+</pre>
+<p>We can instead write the code like this:</p>
+<pre>
+    <code>
+        const randomAnonymousFunction = function random(min,max){
+            return Math.floor((Math.random()*(max - min +1) -min))
+        }
+    </code>
+</pre>
+This can be taken a step further in order to save even more on key strokes by writing the same example as an arrow or lambda function instead:
+<pre>
+    <code>
+        const randomCompactArrowFunction = (min,max) =>  Math.floor((Math.random()*(max - min +1) -min))
+        console.log(randomCompactArrowFunction(0,20));   
+    </code>
+</pre>
+<p>The example above returns a random number between 0 and twenty.</p>
+
+<h2>Now for the callback</h2>
+<p>A callback function, as stated earlier, takes a function as an argument and then works on that function.
+    In this example we are creating a function that can handle generic actions as text, returns the actions and a the name. Of course, this is a simple example and not really pertinent for anything else than an example. 
+    Although it does illustrate the capability of callback functions to allow for modular behaviour in the code</p>
+<pre>
+    <code>
+        function genericACtionPerformer(genericAction, genericName) {
+
+
+            return genericAction(genericName)
+         }
+         
+         const subtract = (name) => `${name} is subtracting.`
+         const walk = (name) => `${name} is walking.`
+         const read = (name) => `${name} is reading War and Peace.`
+         
+         console.log(genericACtionPerformer(subtract, "Tobias"))
+            returns: 'Tobias is subtracting.'
+         console.log(genericACtionPerformer(walk, "Nicolas"))
+            returns: 'Nicolas is walking.'
+    </code>
+</pre>
+<p>
+    But how do I use it and what for?
+    In the app.js file we have several redirects based on requests from the client, this is one of the places where a callback function is used.
+</p>
+<pre>
+    <code>
+        app.get("/", (req, res) => {
+            res.send(frontpagePage);
+        }); 
+    </code>
+</pre>

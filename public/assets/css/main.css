@@ -95,3 +95,28 @@ pre code {
     max-width: 100%;
     border-radius: 1em;
 }
+
+input[type=text] {
+    margin: 0.4em;
+    border: 0;
+    color: rgb(20, 20, 20);
+    background-color: whitesmoke;
+    box-shadow: rgba(255, 0, 0, 0.8) -3px -3px 3px, rgba(0, 128, 0, 0.8) 2px 2px 3px,rgba(0, 0, 255, 0.8) 3px -3px 3px;
+}
+
+*:focus {outline:none !important}
+
+
+
+button {
+    margin: 0.5em;
+    border: 0;
+    color: rgb(20, 20, 20);
+    transition: all 0.3s ease-in-out;
+    background-color: whitesmoke;
+    border-radius: 0.3em;
+    box-shadow: rgba(255, 0, 0, 0.8) -3px -3px 3px, rgba(0, 128, 0, 0.8) 2px 2px 3px,rgba(0, 0, 255, 0.8) 3px -3px 3px;
+}
+button:hover{
+    box-shadow: cyan -3px -3px 6px, magenta 2px 2px 6px, yellow 3px -3px 6px;
+}
