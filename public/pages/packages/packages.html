@@ -1,7 +1,48 @@
 
 <h1>Packages</h1>
 
-<h2>SHORT INTRODUCTORY PARAGRAPH.</h2>
+<h2>A package is a package.json file which contains metadata and dependencies.</h2>
 
-<p>TEXT
+<p>
+    When we work with a node.js project we are going to be dependent on certain functionalities collected in packages. 
+    The most important one is express which is thge backbone of node.
 </p>
+<p>
+    In order to install express I will need to open my terminal and type:
+</p>
+<pre>
+    <code>
+        npm install express
+    </code>
+</pre>
+<p>
+    This initiaties the node package manager, an inbuilt package manager found in javascript, and tells it to install express.
+    Once express is installed it needs to be initialized and instantiated. 
+    This is done in two ways, the second of which requires that the entire project is set to be a module, both should be done at the top of the app.js file.
+</p>
+<pre>
+    <code>
+        const express = require("express");
+        //
+        import express from 'express';
+        //either way we need to instantiate express
+        const app = express();
+    </code>
+</pre>
+<p>
+    The more direct way to do this is to create the package.json file yourself and then put this into it. 
+    Make sure to remember the quotation marks as it will not be correct json otherwise.
+</p>
+<pre>
+    <code>
+        {"dependencies":{
+            "express":"4.18.2"
+        },
+        }
+    </code>
+</pre>
+<p>Afterwards a simple command of "npm init" in the terminal will help you configure the rest.</p>
+
+<h3 id="poem">Node packages thrive,<br>
+    Bring life to our code's design, <br>
+    Npm brings the hive</h3>
