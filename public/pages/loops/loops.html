@@ -85,4 +85,108 @@ The following will list a number of the most common loop methods. I will examine
 </pre>
 <p>The find method will only return Arnold in the last example, as it will return the first element that lives up to its criteria.</p>
 <h2>Side effects</h2>
-<p>Side effects are unwanted effects resulting from not handling various methods properly, most likely it is due to poor encapsulation and lax adherence to scopes</p>
+<p>Side effects are unwanted effects from not handling methods properly, most likely it is due to poor encapsulation and lax adherence to scopes. 
+    The following is an example of side effects and how to handle it.
+</p>
+<p>
+    Given an array of horses, we want to add a race run to them.
+</p>
+<pre>
+    <code>
+        const horses = [
+    {name: 'Flash', racesRun: 4},
+    {name: 'goldenDelicious', racesRun: 12},
+    {name: 'Boogityboo', racesRun: 1},
+    {name: 'DanceMcGradle', racesRun: 8},
+    ];
+
+    const plusOneRace = (horses.forEach(horse => horse.racesRun += 1));
+
+    console.log(horses);
+    [
+    { name: 'Flash', racesRun: 5 },
+    { name: 'goldenDelicious', racesRun: 13 },
+    { name: 'Boogityboo', racesRun: 2 },
+    { name: 'DanceMcGradle', racesRun: 9 }
+    ]
+    </code>
+</pre>
+<p>
+    As mentioned above, this will directly mutate the existing list and should not be done 
+    - since we want to keep the data as untouched as possible. 
+    Instead what we should do, is to use a method that returns a new array without touching the original.
+    This is more complicated than it would seem as even the map method will mutate the original array sometimes.
+    As shown here.
+</p>
+<pre>
+    <code>
+        const plusOneRaceAlt = (horses.map(horse => {
+            horse.racesRun ++;
+            return horse;
+        }));
+    </code>
+</pre>
+<p>
+    Although it would seem that this way of using the map method does not change the original array of horses, the way in which we increment the racesRun do.
+    Should they be printed one next to the other they would both yield the same result.
+</p>
+<pre>
+    <code>
+        console.log(plusOneRaceAlt);
+       
+        [
+        { name: 'Flash', racesRun: 6 },
+        { name: 'goldenDelicious', racesRun: 14 },
+        { name: 'Boogityboo', racesRun: 3 },
+        { name: 'DanceMcGradle', racesRun: 10 }
+        ]
+
+        console.log(horses);
+
+        [
+        { name: 'Flash', racesRun: 6 },
+        { name: 'goldenDelicious', racesRun: 14 },
+        { name: 'Boogityboo', racesRun: 3 },
+        { name: 'DanceMcGradle', racesRun: 10 }
+        ]
+
+    </code>
+</pre>
+<p>
+    The contents of both arrays are identical, meaning that we have changed the original horses array. 
+    Not great, especially since we did not mean to do this.
+</p>
+<p>
+    The correct way to do this, would be to use the spread operator ("...") to create a new object with the properties of horses.
+    The spread operator can be used on any iterable (array, string) to essentially copy the contents of that into a new iterable.
+</p>
+<pre>
+    <code>
+        const plusOneRaceSansSideEffects = (horses.map(horse => 
+                    ({ ... horse, racesRun: horse.racesRun+1})));
+
+        console.log(plusOneRaceSansSideEffects);
+        
+        [
+        { name: 'Flash', racesRun: 7 },
+        { name: 'goldenDelicious', racesRun: 15 },
+        { name: 'Boogityboo', racesRun: 4 },
+        { name: 'DanceMcGradle', racesRun: 11 }
+        ]
+
+        console.log(horses);
+        
+        [
+        { name: 'Flash', racesRun: 6 },
+        { name: 'goldenDelicious', racesRun: 14 },
+        { name: 'Boogityboo', racesRun: 3 },
+        { name: 'DanceMcGradle', racesRun: 10 }
+        ]
+    </code>
+</pre>
+
+<h3 id="poem">
+    Looping with purpose,<br>
+    Array methods guide the way,<br>
+    JavaScript sings.
+</h3>
