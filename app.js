@@ -26,6 +26,15 @@ app.get('/admin', ((req, res) => {
   res.send(adminPage);
 }))
 
+const loginFail = templateEngine.readPage('./public/pages/loginpage/loginfail.html');
+const loginFailPage = templateEngine.renderPage(loginFail, {
+  tabTitle: 'nJd | FAIL'
+})
+
+app.get('/login/fail', ((req, res) => {
+  res.send(loginFailPage);
+}))
+
 const frontpage = templateEngine.readPage('./public/pages/frontpage/frontpage.html');
 const frontpagePage = templateEngine.renderPage(frontpage, {
   tabTitle: 'nJd | welcome'
@@ -142,7 +151,19 @@ const users = [{
   password: 'admin'
 }]
 
-app.post('/login')
+app.post('/api/login', ((req, res) => {
+  console.log(req); 
+  const loginName = req.body.username;
+  const loginPassword = req.body.password;
+  console.log(loginName);
+  console.log(loginPassword);
+  const validatedUser = users.find(user => user.username === loginName && user.password === loginPassword);
+  if (validatedUser) {
+    res.redirect('/admin');
+  } else {
+    res.redirect('/login/fail');
+  }
+}));
 
 const PORT = 8080;
 app.listen(PORT, (error) => {

@@ -103,6 +103,20 @@ input[type=text] {
     background-color: whitesmoke;
     box-shadow: rgba(255, 0, 0, 0.8) -3px -3px 3px, rgba(0, 128, 0, 0.8) 2px 2px 3px,rgba(0, 0, 255, 0.8) 3px -3px 3px;
 }
+input[type=password] {
+    margin: 0.4em;
+    border: 0;
+    color: rgb(20, 20, 20);
+    background-color: whitesmoke;
+    box-shadow: rgba(255, 0, 0, 0.8) -3px -3px 3px, rgba(0, 128, 0, 0.8) 2px 2px 3px,rgba(0, 0, 255, 0.8) 3px -3px 3px;
+}
+input[type=text] {
+    margin: 0.4em;
+    border: 0;
+    color: rgb(20, 20, 20);
+    background-color: whitesmoke;
+    box-shadow: rgba(255, 0, 0, 0.8) -3px -3px 3px, rgba(0, 128, 0, 0.8) 2px 2px 3px,rgba(0, 0, 255, 0.8) 3px -3px 3px;
+}
 
 *:focus {outline:none !important}
 
@@ -126,4 +140,8 @@ button:hover{
     color: rgb(200,200,200);
     margin: 0.5em;
     border-radius: 0.2em;
+}
+
+input {
+    margin: 1em;
 }

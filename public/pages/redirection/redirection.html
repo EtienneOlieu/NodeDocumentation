@@ -1,7 +1,31 @@
 
 <h1>Redirection</h1>
 
-<h2>SHORT INTRODUCTORY PARAGRAPH.</h2>
+<h2>Redirection is the process in which a client is sent to another endpoint</h2>
 
-<p>TEXT
+<p>
+    In order to handle security or error messages, it can be useful to redirect the client based on certain criteria.
+    A redirect is something that happens on the server, where, if certain conditions are true, the client is sent to another endpoint.
+    This might be something as simple as a timer redirecting after a short while or done after a check on certain credentials.
 </p>
+<p>
+    The following is an example of a redirect based on a query string:
+</p>
+<pre>
+    <code>
+        app.get("/api/banditcave", (req, res) => {
+            console.log(req.query)
+            if (req.query.passport === 'open-sesame') {
+                return res.redirect("/api/treasure")
+            }
+                res.send({message: "You must speak the secret password to enter"});
+        })
+    </code>
+</pre>
+<p>
+    Unless the user writes a query with "open-sesame" they will not be sent to the trease api end point. 
+</p>
+
+<h3 id="poem">Node redirects flow, <br>
+    Requests find new direction, <br>
+    URLs dance and change.</h3>
